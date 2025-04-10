@@ -1,11 +1,1086 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Site du CIRNE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIRNE - Club de Robotique Nantes Erdre</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .gallery-item {
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        .course-card {
+            transition: all 0.3s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
-<body>
-  <h1>Bienvenue sur le site du Club Informatique et Robotique Nantes Erdre</h1>
-  <p>Ce site est en construction, mais il sera bientôt rempli de projets passionnants !</p>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-blue-900 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <img src="https://github.com/frederique44/PhotosCirne/raw/main/logo%20(200%20x%20400%20px)%20(2).png" alt="Logo CIRNE" class="h-28 w-28 mr-4 rounded-full">
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold">CIRNE</h1>
+                        <p class="text-blue-200">Club d'Informatique et Robotique Nantes Erdre</p>
+                    </div>
+                </div>
+                <nav class="w-full md:w-auto">
+                    <ul class="flex flex-wrap justify-center space-x-1 md:space-x-4">
+                        <li><button onclick="showTab('accueil')" class="tab-btn px-3 py-2 rounded hover:bg-blue-800 font-medium active">Accueil</button></li>
+                        <li><button onclick="showTab('formations')" class="tab-btn px-3 py-2 rounded hover:bg-blue-800 font-medium">Formations</button></li>
+                        <li><button onclick="showTab('competitions')" class="tab-btn px-3 py-2 rounded hover:bg-blue-800 font-medium">Compétitions</button></li>
+                        <li><button onclick="showTab('agenda')" class="tab-btn px-3 py-2 rounded hover:bg-blue-800 font-medium">Agenda</button></li>
+                        <li><button onclick="showTab('supports')" class="tab-btn px-3 py-2 rounded hover:bg-blue-800 font-medium">Supports</button></li>
+                        <li><button onclick="showTab('contact')" class="tab-btn px-3 py-2 rounded hover:bg-blue-800 font-medium">Contact</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Accueil Tab -->
+        <div id="accueil" class="tab-content active">
+            <section class="mb-12">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+                    <div class="md:flex">
+                        <div class="md:w-1/2">
+                            <img src="https://via.placeholder.com/600x400" alt="Club CIRNE" class="h-full w-full object-cover">
+                        </div>
+                        <div class="p-8 md:w-1/2">
+                            <h2 class="text-3xl font-bold text-blue-900 mb-4">Bienvenue au CIRNE</h2>
+                            <p class="text-gray-700 mb-4">
+                                Le CIRNE est un club d'informatique et de robotique pour collégiens.
+                            </p>
+                            <p class="text-gray-700 mb-6">
+                                Que vous soyez débutant ou expérimenté, nous vous offrons un espace d'apprentissage et d'expérimentation à travers :
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-graduation-cap text-blue-600 mr-2"></i>
+                                    <span>Des formations en présentiel pour acquérir des compétences en programmation, électronique...</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-robot text-blue-600 mr-2"></i>
+                                    <span>Un cursus compétition de robotique pour mettre en pratique vos connaissances</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-laptop-code text-blue-600 mr-2"></i>
+                                    <span>Un espace e-learning avec cours, tutos et supports pédagogiques</span>
+                                </li>
+                            </ul>
+                            <button onclick="showTab('contact')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                                Rejoignez-nous
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-blue-900 mb-6 text-center">Galerie du Club</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://via.placeholder.com/400x300" alt="Formation" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold text-lg mb-2">Session Formation</h4>
+                            <p class="text-gray-600">Apprentissage de la programmation</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://github.com/frederique44/PhotosCirne/raw/main/Competition%20(2).png" alt="Compétition" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold text-lg mb-2">Compétition FLL</h4>
+                            <p class="text-gray-600">Notre équipe lors de la First Lego League</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://github.com/frederique44/PhotosCirne/raw/main/Robotique%20avanc%C3%A9e.png" alt="Atelier robotique" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold text-lg mb-2">Atelier Robotique</h4>
+                            <p class="text-gray-600">Nos membres en pleine construction de robots</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Formations Tab -->
+        <div id="formations" class="tab-content">
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center">Nos Formations</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                    <div class="course-card bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="https://github.com/frederique44/PhotosCirne/raw/main/Electronique.png" alt="Electronique" class="w-full h-38 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-blue-800">Electronique puis Arduino</h3>
+                            <p class="text-gray-600 mb-4">Assemblez les composants, soudez, et programmez la carte pour fabriquer un objet électronique.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Débutant</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Arduino</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="https://github.com/frederique44/PhotosCirne/raw/main/Robotique%20avanc%C3%A9e.png" alt="Robotique avancée" class="w-full h-38 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-blue-800">Robotique avancée</h3>
+                            <p class="text-gray-600 mb-4">Programmation en Scratch et Python. Apprenez à programmer un robot en mouvement et gérez les capteurs.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Intermédiaire</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="https://github.com/frederique44/PhotosCirne/raw/main/MIT%20A12.png" alt="Programmation Android" class="w-full h-38 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-blue-800">Programmation sur Android</h3>
+                            <p class="text-gray-600 mb-4">Créez vos propres applications mobiles pour appareils Android.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Débutant</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">MIT-A12</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="https://github.com/frederique44/PhotosCirne/raw/main/3d.png" alt="3D" class="w-full h-40 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-blue-800">Modélisation et impression 3D</h3>
+                            <p class="text-gray-600 mb-4">Apprenez à concevoir des objets en 3D et à les imprimer avec nos imprimantes.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Tous niveaux</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Tinkercad</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="https://via.placeholder.com/400x200" alt="IA" class="w-full h-40 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-blue-800">Intelligence Artificielle</h3>
+                            <p class="text-gray-600 mb-4">Découvrez les bases de l'IA et créez vos premiers modèles d'apprentissage automatique.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Avancé</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="https://github.com/frederique44/PhotosCirne/raw/main/Fabrice%20MAHE%20orps%20du%20texte%20(2).png" alt="Drone" class="w-full h-38 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-blue-800">Programmation de drones</h3>
+                            <p class="text-gray-600 mb-4">Apprenez à programmer des drones pour des missions autonomes.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Intermédiaire</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 rounded-xl p-8">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4"> Comment s'inscrire ?</h3>
+                    <p class="mb-6">Nos formations sont accessibles à tous les collégiens passionnés de technologie. Pour vous inscrire :</p>
+                    <ol class="list-decimal pl-6 space-y-2 mb-6">
+                        <li>Remplissez le formulaire de contact</li>
+                        <li>Nous vous contacterons pour un entretien de motivation</li>
+                        <li>Choisissez votre formation et votre créneau horaire</li>
+                    </ol>
+                    <button onclick="showTab('contact')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                        Contactez-nous
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Compétitions Tab -->
+        <div id="competitions" class="tab-content">
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center">Nos Compétitions</h2>
+                
+                <div class="bg-white rounded-xl shadow-md overflow-hidden mb-12">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 p-8">
+                            <h3 class="text-2xl font-bold text-blue-800 mb-4">First Lego League Challenge</h3>
+                            <p class="text-gray-700 mb-4">
+                                Avec plus de 350 000 participants dans 110 pays, la FLL est la plus grande compétition de robotique pour les jeunes.
+                            </p>
+                            <p class="text-gray-700 mb-6">
+                                Le club Air2/CIRNE a remporté de nombreuses récompenses : coupes régionales, nationales, et participation à la finale internationale aux USA.
+                            </p>
+                            <div class="flex items-center text-blue-600">
+                                <i class="fas fa-trophy text-2xl mr-3"></i>
+                                <span class="font-semibold">Palmarès  </span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2">
+                            <img src="https://github.com/frederique44/PhotosCirne/raw/main/Competition%20(2).png" alt="Equipe FLL" class="h-full w-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-blue-900 mb-6 text-center">Nos moments clés</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-medal text-yellow-500 text-2xl mr-3"></i>
+                            <h4 class="text-xl font-bold">Participation à la finale First Lego League France à Armentières : 2022-2023</h4>
+                        </div>
+                        <p class="text-gray-600">Qualification  au Botfest de Nantes (Régionale)</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-medal text-gray-400 text-2xl mr-3"></i>
+                            <h4 class="text-xl font-bold">Participation à la finale First Lego League France à Nantes : 2024-2025</h4>
+                        </div>
+                        <p class="text-gray-600">Qualification au Botfest de Nantes (Régionale)</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-star text-blue-500 text-2xl mr-3"></i>
+                            <h4 class="text-xl font-bold">Participation à la finale FLL internationale de Houston (USA) 2024-2025</h4>
+                        </div>
+                        <p class="text-gray-600">Qualification à la finale France des Sables d'Olonne</p>
+                    </div>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-blue-900 mb-6 text-center">Nous Rencontrer</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://github.com/frederique44/PhotosCirne/raw/main/Botfest%20affiche.png" alt="Botfest" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="font-bold text-lg mb-2">Botfest</h4>
+                            <p class="text-gray-600 mb-4">Festival annuel de robotique où Air2 organise plusieurs compétitions de robotique </p>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">25 janvier 2025</span>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://github.com/frederique44/PhotosCirne/raw/main/Nantes%20Maker%20Campus%20affiche.png" alt="Maker Campus" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="font-bold text-lg mb-2">Nantes Maker Campus</h4>
+                            <p class="text-gray-600 mb-4">Rendez-vous des makers où nous sommes traditionnellement présents</p>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">6-8 juin 2025</span>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://via.placeholder.com/400x250" alt="Anniversaire" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="font-bold text-lg mb-2">Anniversaire 10 ans d'Air2</h4>
+                            <p class="text-gray-600 mb-4">Célébration d'une décennie d'innovation et de passion pour l'informatique et la robotique</p>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Juin 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Robotique - Agenda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .theme-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .theme-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .theme-electronique {
+            border-left-color: #3B82F6;
+        }
+        .theme-programmation-bloc {
+            border-left-color: #10B981;
+        }
+        .theme-robotique-avance {
+            border-left-color: #EF4444;
+        }
+        .theme-android {
+            border-left-color: #8B5CF6;
+        }
+        .theme-arduino {
+            border-left-color: #F59E0B;
+        }
+        .theme-processing {
+            border-left-color: #EC4899;
+        }
+        .theme-javascript {
+            border-left-color: #F97316;
+        }
+        .theme-wordpress {
+            border-left-color: #06B6D4;
+        }
+        .theme-inkscape {
+            border-left-color: #84CC16;
+        }
+        .theme-cybersecurite {
+            border-left-color: #64748B;
+        }
+        .theme-3d {
+            border-left-color: #6366F1;
+        }
+        .theme-python {
+            border-left-color: #14B8A6;
+        }
+        .theme-godot {
+            border-left-color: #F43F5E;
+        }
+        .theme-ia {
+            border-left-color: #8B5CF6;
+        }
+        .theme-drones {
+            border-left-color: #0EA5E9;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Agenda Tab -->
+    <div id="agenda" class="tab-content p-4 md:p-8">
+        <section class="mb-12 max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center">Programme Annuel du groupe Formation</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="p-6 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-blue-100">
+                            <h3 class="text-xl font-bold text-blue-800">Thèmes des Séances</h3>
+                            <p class="text-gray-600 mt-1">12 séances réparties sur l'année scolaire</p>
+                        </div>
+                        
+                        <div class="divide-y divide-gray-200">
+                            <!-- Thème 1 -->
+                            <div class="theme-card theme-electronique p-6 hover:bg-gray-50 transition duration-200">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 text-blue-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                        <i class="fas fa-microchip text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Electronique</h4>
+                                        <p class="text-gray-600 mb-2">Découverte des composants électroniques et circuits de base</p>
+                                        <div class="flex items-center text-sm text-gray-500">
+                                            <i class="fas fa-clock mr-2"></i>
+                                            <span>1 séance</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Thème 2 -->
+                            <div class="theme-card theme-programmation-bloc p-6 hover:bg-gray-50 transition duration-200">
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 text-green-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                        <i class="fas fa-puzzle-piece text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Programmation par bloc</h4>
+                                        <p class="text-gray-600 mb-2">Initiation à la logique algorithmique avec des interfaces visuelles</p>
+                                        <div class="flex items-center text-sm text-gray-500">
+                                            <i class="fas fa-clock mr-2"></i>
+                                            <span>1 séance</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Thème 3 -->
+                            <div class="theme-card theme-robotique-avance p-6 hover:bg-gray-50 transition duration-200">
+                                <div class="flex items-start">
+                                    <div class="bg-red-100 text-red-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                        <i class="fas fa-robot text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Robotique avancée</h4>
+                                        <p class="text-gray-600 mb-2">Conception et programmation de robots complexes</p>
+                                        <div class="flex items-center text-sm text-gray-500">
+                                            <i class="fas fa-clock mr-2"></i>
+                                            <span>1 séance</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Thème 4 -->
+                            <div class="theme-card theme-android p-6 hover:bg-gray-50 transition duration-200">
+                                <div class="flex items-start">
+                                    <div class="bg-purple-100 text-purple-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                        <i class="fab fa-android text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Programmation sur Android</h4>
+                                        <p class="text-gray-600 mb-2">Création d'applications mobiles pour smartphones</p>
+                                        <div class="flex items-center text-sm text-gray-500">
+                                            <i class="fas fa-clock mr-2"></i>
+                                            <span>1 séance</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Thème 5 -->
+                            <div class="theme-card theme-arduino p-6 hover:bg-gray-50 transition duration-200">
+                                <div class="flex items-start">
+                                    <div class="bg-yellow-100 text-yellow-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                        <i class="fas fa-project-diagram text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Arduino et Blocklyduino</h4>
+                                        <p class="text-gray-600 mb-2">Programmation de microcontrôleurs avec Arduino</p>
+                                        <div class="flex items-center text-sm text-gray-500">
+                                            <i class="fas fa-clock mr-2"></i>
+                                            <span>1 séance</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Thème 6 -->
+                            <div class="theme-card theme-processing p-6 hover:bg-gray-50 transition duration-200">
+                                <div class="flex items-start">
+                                    <div class="bg-pink-100 text-pink-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                        <i class="fas fa-code text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Processing et Java</h4>
+                                        <p class="text-gray-600 mb-2">Création graphique et programmation orientée objet</p>
+                                        <div class="flex items-center text-sm text-gray-500">
+                                            <i class="fas fa-clock mr-2"></i>
+                                            <span>1 séance</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Bouton "Voir plus" -->
+                            <div class="p-4 text-center">
+                                <button id="showMoreBtn" class="text-blue-600 hover:text-blue-800 font-medium">
+                                    Voir tous les thèmes <i class="fas fa-chevron-down ml-1"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Thèmes cachés initialement -->
+                            <div id="moreThemes" class="hidden">
+                                <!-- Thème 7 -->
+                                <div class="theme-card theme-javascript p-6 hover:bg-gray-50 transition duration-200">
+                                    <div class="flex items-start">
+                                        <div class="bg-orange-100 text-orange-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                            <i class="fab fa-js-square text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-lg mb-1">JavaScript</h4>
+                                            <p class="text-gray-600 mb-2">Programmation web interactive et dynamique</p>
+                                            <div class="flex items-center text-sm text-gray-500">
+                                                <i class="fas fa-clock mr-2"></i>
+                                                <span>1 séance</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Thème 8 -->
+                                <div class="theme-card theme-wordpress p-6 hover:bg-gray-50 transition duration-200">
+                                    <div class="flex items-start">
+                                        <div class="bg-cyan-100 text-cyan-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                            <i class="fab fa-wordpress text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-lg mb-1">WordPress</h4>
+                                            <p class="text-gray-600 mb-2">Création de sites web sans coder</p>
+                                            <div class="flex items-center text-sm text-gray-500">
+                                                <i class="fas fa-clock mr-2"></i>
+                                                <span>1 séance</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Thème 9 -->
+                                <div class="theme-card theme-inkscape p-6 hover:bg-gray-50 transition duration-200">
+                                    <div class="flex items-start">
+                                        <div class="bg-lime-100 text-lime-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                            <i class="fas fa-paint-brush text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-lg mb-1">Inkscape</h4>
+                                            <p class="text-gray-600 mb-2">Dessin vectoriel et conception graphique</p>
+                                            <div class="flex items-center text-sm text-gray-500">
+                                                <i class="fas fa-clock mr-2"></i>
+                                                <span>1 séance</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Thème 10 -->
+                                <div class="theme-card theme-cybersecurite p-6 hover:bg-gray-50 transition duration-200">
+                                    <div class="flex items-start">
+                                        <div class="bg-gray-100 text-gray-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                            <i class="fas fa-shield-alt text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-lg mb-1">Cybersécurité et adressage IP</h4>
+                                            <p class="text-gray-600 mb-2">Protection en ligne et fonctionnement des réseaux</p>
+                                            <div class="flex items-center text-sm text-gray-500">
+                                                <i class="fas fa-clock mr-2"></i>
+                                                <span>1 séance</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Thème 11 -->
+                                <div class="theme-card theme-3d p-6 hover:bg-gray-50 transition duration-200">
+                                    <div class="flex items-start">
+                                        <div class="bg-indigo-100 text-indigo-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                            <i class="fas fa-cube text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-lg mb-1">Modélisation et impression 3D</h4>
+                                            <p class="text-gray-600 mb-2">Conception d'objets et fabrication additive</p>
+                                            <div class="flex items-center text-sm text-gray-500">
+                                                <i class="fas fa-clock mr-2"></i>
+                                                <span>1 séance</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Thème 12 -->
+                                <div class="theme-card theme-python p-6 hover:bg-gray-50 transition duration-200">
+                                    <div class="flex items-start">
+                                        <div class="bg-teal-100 text-teal-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                            <i class="fab fa-python text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-lg mb-1">Robotique et Python</h4>
+                                            <p class="text-gray-600 mb-2">Programmation de robots avec Python</p>
+                                            <div class="flex items-center text-sm text-gray-500">
+                                                <i class="fas fa-clock mr-2"></i>
+                                                <span>1 séance</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Thème 13 -->
+                                <div class="theme-card theme-godot p-6 hover:bg-gray-50 transition duration-200">
+                                    <div class="flex items-start">
+                                        <div class="bg-rose-100 text-rose-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                            <i class="fas fa-gamepad text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-lg mb-1">Godot</h4>
+                                            <p class="text-gray-600 mb-2">Création de jeux vidéo avec le moteur Godot</p>
+                                            <div class="flex items-center text-sm text-gray-500">
+                                                <i class="fas fa-clock mr-2"></i>
+                                                <span>1 séance</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Thème 14 -->
+                                <div class="theme-card theme-ia p-6 hover:bg-gray-50 transition duration-200">
+                                    <div class="flex items-start">
+                                        <div class="bg-purple-100 text-purple-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                            <i class="fas fa-brain text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-lg mb-1">Intelligence Artificielle</h4>
+                                            <p class="text-gray-600 mb-2">Introduction aux concepts de l'IA</p>
+                                            <div class="flex items-center text-sm text-gray-500">
+                                                <i class="fas fa-clock mr-2"></i>
+                                                <span>1 séance</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Thème 15 -->
+                                <div class="theme-card theme-drones p-6 hover:bg-gray-50 transition duration-200">
+                                    <div class="flex items-start">
+                                        <div class="bg-blue-100 text-blue-800 rounded-lg p-3 mr-4 text-center min-w-16">
+                                            <img src="images/icone-drone.png" alt="Icône Drone" class="h-8 w-auto" />
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-lg mb-1">Drones</h4>
+                                            <p class="text-gray-600 mb-2">Pilotage et programmation de drones</p>
+                                            <div class="flex items-center text-sm text-gray-500">
+                                                <i class="fas fa-clock mr-2"></i>
+                                                <span>1 séance</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden mb-6">
+                        <div class="p-6 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-blue-100">
+                            <h3 class="text-xl font-bold text-blue-800">Informations Pratiques</h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-6">
+                                <h4 class="font-bold text-lg mb-3 flex items-center">
+                                    <i class="fas fa-calendar-alt text-blue-600 mr-3"></i>
+                                    Organisation
+                                </h4>
+                                <ul class="space-y-3 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>12 séances réparties sur l'année scolaire</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Pas de séances pendant les vacances scolaires</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Thèmes variés couvrant tous les domaines du numérique</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="font-bold text-lg mb-3 flex items-center">
+                                    <i class="fas fa-clock text-blue-600 mr-3"></i>
+                                    Horaires
+                                </h4>
+                                <div class="bg-blue-50 rounded-lg p-4">
+                                    <div class="flex items-center mb-2">
+                                        <div class="bg-blue-100 text-blue-800 rounded-full p-2 mr-3">
+                                            <i class="fas fa-calendar-day"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium">Séances régulières</p>
+                                            <p class="text-sm text-gray-600">Samedi, 10h-12h</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="bg-blue-100 text-blue-800 rounded-full p-2 mr-3">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium">Équipe compétition</p>
+                                            <p class="text-sm text-gray-600">Samedi, 10h-12h</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-bold text-lg mb-3 flex items-center">
+                                    <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i>
+                                    Lieu
+                                </h4>
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 text-blue-800 rounded-lg p-3 mr-4">
+                                        <i class="fas fa-laptop-house text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Maison de quartier La Locomotive</p>
+                                        <p class="text-gray-600">1er étage, à droite</p>
+                                        <p class="text-gray-600 mt-1">Équipée de tout le matériel nécessaire</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-6 text-white">
+                        <h3 class="text-xl font-bold mb-4">Comment participer ?</h3>
+                        <p class="mb-4 opacity-90">
+                             
+                            Inscrivez-vous pour recevoir le calendrier détaillé.
+                        </p>
+                        <button onclick="showTab('contact')" class="w-full bg-white hover:bg-gray-100 text-blue-800 font-bold py-3 px-4 rounded-full transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Demander le programme complet
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Fonction pour afficher/masquer les thèmes supplémentaires
+        document.getElementById('showMoreBtn').addEventListener('click', function() {
+            const moreThemes = document.getElementById('moreThemes');
+            const icon = this.querySelector('i');
+            
+            if (moreThemes.classList.contains('hidden')) {
+                moreThemes.classList.remove('hidden');
+                this.textContent = 'Voir moins ';
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                moreThemes.classList.add('hidden');
+                this.textContent = 'Voir tous les thèmes ';
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+            
+            // Ajouter l'icône à nouveau
+            this.appendChild(icon);
+        });
+
+        // Fonction fictive pour changer d'onglet
+        function showTab(tabName) {
+            console.log('Afficher l\'onglet:', tabName);
+            // Implémentation réelle dépend de votre structure HTML
+        }
+    </script>
 </body>
 </html>
+
+      
+        <!-- Supports Tab -->
+        <div id="supports" class="tab-content">
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center">Supports Pédagogiques</h2>
+                
+                <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                    <h3 class="text-xl font-bold text-blue-800 mb-4">Accès aux Ressources</h3>
+                    <p class="text-gray-700 mb-6">
+                        En tant que membre du CIRNE, vous avez accès à tous nos supports de cours, tutoriels et ressources pédagogiques. Entrez votre nom pour accéder aux documents.
+                    </p>
+                    
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <div class="mb-4">
+                            <label for="member-name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                            <input type="text" id="member-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <button onclick="checkAccess()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                            Accéder aux supports
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="resources-container" class="hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="bg-blue-100 p-4">
+                                <h4 class="font-bold text-blue-800 flex items-center">
+                                    <i class="fas fa-file-pdf text-red-500 mr-2"></i>
+                                    Supports Robotique
+                                </h4>
+                            </div>
+                            <div class="p-4">
+                                <ul class="space-y-2">
+                                    <li class="flex items-center">
+                                        <i class="far fa-file-pdf text-red-500 mr-2"></i>
+                                        <a href="#" class="text-blue-600 hover:underline">Guide Lego Mindstorms</a>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="far fa-file-pdf text-red-500 mr-2"></i>
+                                        <a href="#" class="text-blue-600 hover:underline">Programmation des capteurs</a>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="far fa-file-pdf text-red-500 mr-2"></i>
+                                        <a href="#" class="text-blue-600 hover:underline">Stratégies de compétition</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="bg-blue-100 p-4">
+                                <h4 class="font-bold text-blue-800 flex items-center">
+                                    <i class="fas fa-laptop-code text-purple-500 mr-2"></i>
+                                    Cours Programmation
+                                </h4>
+                            </div>
+                            <div class="p-4">
+                                <ul class="space-y-2">
+                                    <li class="flex items-center">
+                                        <i class="far fa-file-video text-blue-500 mr-2"></i>
+                                        <a href="#" class="text-blue-600 hover:underline">Python pour débutants</a>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="far fa-file-pdf text-red-500 mr-2"></i>
+                                        <a href="#" class="text-blue-600 hover:underline">Exercices Scratch avancé</a>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="far fa-file-code text-green-500 mr-2"></i>
+                                        <a href="#" class="text-blue-600 hover:underline">Projets JavaScript</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="bg-blue-100 p-4">
+                                <h4 class="font-bold text-blue-800 flex items-center">
+                                    <i class="fas fa-microchip text-yellow-500 mr-2"></i>
+                                    Électronique
+                                </h4>
+                            </div>
+                            <div class="p-4">
+                                <ul class="space-y-2">
+                                    <li class="flex items-center">
+                                        <i class="far fa-file-pdf text-red-500 mr-2"></i>
+                                        <a href="#" class="text-blue-600 hover:underline">Bases de l'électronique</a>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="far fa-file-image text-green-500 mr-2"></i>
+                                        <a href="#" class="text-blue-600 hover:underline">Schémas Arduino</a>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="far fa-file-video text-blue-500 mr-2"></i>
+                                        <a href="#" class="text-blue-600 hover:underline">Tutoriel soudure</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-blue-900 mb-6 text-center">Liens Utiles</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <h4 class="font-bold text-lg mb-3 flex items-center">
+                                <i class="fas fa-external-link-alt text-blue-600 mr-2"></i>
+                                Ressources Externes
+                            </h4>
+                            <ul class="space-y-2">
+                                <li><a href="https://education.lego.com" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-arrow-right text-xs mr-2"></i>LEGO Education</a></li>
+                                <li><a href="https://www.first-lego-league.org" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-arrow-right text-xs mr-2"></i>First Lego League</a></li>
+                                <li><a href="https://www.arduino.cc" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-arrow-right text-xs mr-2"></i>Arduino Official</a></li>
+                                <li><a href="https://www.python.org" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-arrow-right text-xs mr-2"></i>Python Documentation</a></li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <h4 class="font-bold text-lg mb-3 flex items-center">
+                                <i class="fas fa-tools text-blue-600 mr-2"></i>
+                                Outils en Ligne
+                            </h4>
+                            <ul class="space-y-2">
+                                <li><a href="https://scratch.mit.edu" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-arrow-right text-xs mr-2"></i>Scratch Programming</a></li>
+                                <li><a href="https://www.tinkercad.com" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-arrow-right text-xs mr-2"></i>Tinkercad Circuits</a></li>
+                                <li><a href="https://godotengine.org" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-arrow-right text-xs mr-2"></i>Godot Game Engine</a></li>
+                                <li><a href="https://inkscape.org" class="text-blue-600 hover:underline flex items-center"><i class="fas fa-arrow-right text-xs mr-2"></i>Inkscape (dessin vectoriel)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Tab -->
+        <div id="contact" class="tab-content">
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center">Contactez-nous</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-md p-8">
+                        <h3 class="text-xl font-bold text-blue-800 mb-6">Formulaire de Contact</h3>
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-1">Nom complet</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-1">Téléphone</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-gray-700 font-medium mb-1">Sujet</label>
+                                <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="info">Demande d'information</option>
+                                    <option value="registration">Inscription au club</option>
+                                    <option value="workshop">Participation à un atelier</option>
+                                    <option value="competition">Intégration équipe compétition</option>
+                                    <option value="other">Autre demande</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-1">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                                Envoyer le message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden mb-6">
+                            <div class="p-6 border-b border-gray-200">
+                                <h3 class="text-xl font-bold text-blue-800">Nous Trouver</h3>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-start mb-6">
+                                    <i class="fas fa-map-marker-alt text-blue-600 text-xl mr-4 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Le CIRNE</h4>
+                                        <p class="text-gray-700">Maison de quartier La Locomotive</p>
+                                        <p class="text-gray-700">109 av de la Gare de Saint Joseph</p>
+                                        <p class="text-gray-700">44300 Nantes</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start mb-6">
+                                    <i class="fas fa-clock text-blue-600 text-xl mr-4 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Horaires d'ouverture</h4>
+                                        <p class="text-gray-700">Samedi 10h-12h</p>
+                                        <p class="text-gray-700">Équipe compétition : Samedi 10h-12h</p>
+                                    </div>
+                                </div>
+                                    <i class="fas fa-subway text-blue-600 text-xl mr-4 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Accès</h4>
+                                        <p class="text-gray-700">Tram 1 : Halte Halvêque</p>
+                                        <p class="text-gray-700">Bus C6 : Arrêt Beaujoire</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-euro-sign text-blue-600 text-xl mr-4 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Tarifs</h4>
+                                        <p class="text-gray-700">Adhésion annuelle : 180€</p>
+                                        <p class="text-gray-700">Matériel inclus (hors compétition)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 rounded-xl p-6">
+                            <h3 class="text-xl font-bold text-blue-800 mb-4">Suivez-nous</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition duration-300">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">CIRNE</h3>
+                    <p class="text-gray-400">
+                        Club d'Informatique et Robotique Nantes Erdre pour collégiens passionnés de technologie.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liens rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" onclick="showTab('accueil')" class="text-gray-400 hover:text-white transition duration-300">Accueil</a></li>
+                        <li><a href="#" onclick="showTab('formations')" class="text-gray-400 hover:text-white transition duration-300">Formations</a></li>
+                        <li><a href="#" onclick="showTab('competitions')" class="text-gray-400 hover:text-white transition duration-300">Compétitions</a></li>
+                        <li><a href="#" onclick="showTab('contact')" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Abonnez-vous pour recevoir nos actualités.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Votre email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
+                        <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 CIRNE - Club de Robotique Nantes Erdre. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab navigation
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update active tab button
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-800', 'text-white');
+            });
+            event.target.classList.add('bg-blue-800', 'text-white');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous contacterons bientôt.');
+            this.reset();
+        });
+        
+        // Support access check
+        function checkAccess() {
+            const name = document.getElementById('member-name').value.trim();
+            if (name) {
+                document.getElementById('resources-container').classList.remove('hidden');
+                window.scrollTo({
+                    top: document.getElementById('resources-container').offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            } else {
+                alert('Veuillez entrer votre nom pour accéder aux supports.');
+            }
+        }
+    </script>
+</body>
+</html>>
