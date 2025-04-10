@@ -1138,42 +1138,135 @@
         </div>
     </main>
 
+    
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIRNE - Club de Robotique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .sponsor-logo {
+            filter: grayscale(100%) brightness(0) invert(1);
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+        .sponsor-logo:hover {
+            filter: none;
+            opacity: 1;
+        }
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1.5rem;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your page content here -->
+
+    <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
-                    <h3 class="text-xl font-bold mb-4">CIRNE</h3>
-                    <p class="text-gray-400">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-robot mr-3 text-blue-400"></i>
+                        <span>CIRNE</span>
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed">
                         Club d'Informatique et Robotique Nantes Erdre pour collégiens passionnés de technologie.
+                        Nous formons les adolescents à travers des projets innovants.
                     </p>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
                 </div>
+                
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Liens rapides</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" onclick="showTab('accueil')" class="text-gray-400 hover:text-white transition duration-300">Accueil</a></li>
-                        <li><a href="#" onclick="showTab('formations')" class="text-gray-400 hover:text-white transition duration-300">Formations</a></li>
-                        <li><a href="#" onclick="showTab('competitions')" class="text-gray-400 hover:text-white transition duration-300">Compétitions</a></li>
-                        <li><a href="#" onclick="showTab('contact')" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
-                    </ul>
+                    <h3 class="text-2xl font-bold mb-6">Nos partenaires et Sponsors</h3>
+                    <div class="sponsor-grid">
+                        <a href="#" class="sponsor-logo">
+                            <img src="https://via.placeholder.com/120x60?text=TechCorp" alt="xxxxx" class="w-full h-auto">
+                        </a>
+                        <a href="#" class="sponsor-logo">
+                            <img src="https://via.placeholder.com/120x60?text=Robotix" alt="xxxxxx" class="w-full h-auto">
+                        </a>
+                        <a href="#" class="sponsor-logo">
+                            <img src="https://via.placeholder.com/120x60?text=Nantes+City" alt="xxxx xxxx" class="w-full h-auto">
+                        </a>
+                        <a href="#" class="sponsor-logo">
+                            <img src="https://via.placeholder.com/120x60?text=FutureLab" alt="xxxx" class="w-full h-auto">
+                        </a>
+                        <a href="#" class="sponsor-logo">
+                            <img src="https://via.placeholder.com/120x60?text=EDU+" alt="xxx+" class="w-full h-auto">
+                        </a>
+                        <a href="#" class="sponsor-logo">
+                            <img src="https://via.placeholder.com/120x60?text=CodeMaster" alt="xxxxx" class="w-full h-auto">
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <a href="#" class="text-blue-400 hover:text-blue-300 font-medium inline-flex items-center">
+                            Devenir sponsor <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
                 </div>
+                
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
-                    <p class="text-gray-400 mb-4">Abonnez-vous pour recevoir nos actualités.</p>
+                    <h3 class="text-2xl font-bold mb-6">Restez informés</h3>
+                    
                     <div class="flex">
-                        <input type="email" placeholder="Votre email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
-                        <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg transition duration-300">
-                            <i class="fas fa-paper-plane"></i>
+                        <input type="email" placeholder="Votre email" class="px-4 py-3 rounded-l-lg focus:outline-none text-gray-800 w-full focus:ring-2 focus:ring-blue-500">
+                        <button class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-r-lg transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-paper-plane mr-2"></i> Envoyer
                         </button>
+                    </div>
+                    <div class="mt-6 flex items-center">
+                        <i class="fas fa-envelope text-blue-400 mr-3 text-xl"></i>
+                        <span class="text-gray-400">xxxxxxxxcontact@cirne.frxxxxxxxxxx</span>
+                    </div>
+                    <div class="mt-3 flex items-center">
+                        <i class="fas fa-map-marker-alt text-blue-400 mr-3 text-xl"></i>
+                        <span class="text-gray-400">xxxxxxx, 44000 Nantes</span>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 CIRNE - Club de Robotique Nantes Erdre. Tous droits réservés.</p>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 mb-4 md:mb-0">
+                    &copy; 2025 CIRNE - Club de Robotique Nantes Erdre. Tous droits réservés.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-white transition duration-300">Mentions légales</a>
+                    <a href="#" class="text-gray-500 hover:text-white transition duration-300">Politique de confidentialité</a>
+                    <a href="#" class="text-gray-500 hover:text-white transition duration-300">CGU</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <script>
+        // Your JavaScript functions here
+        function showTab(tabId) {
+            // Tab switching logic
+        }
+    </script>
+</body>
+</html>
     <script>
         // Tab navigation
         function showTab(tabId) {
