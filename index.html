@@ -1171,7 +1171,8 @@
 
     <footer class="bg-gray-800 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr_2fr] gap-12">
+
                 <div>
                     <h3 class="text-2xl font-bold mb-6 flex items-center">
                         <i class="fas fa-robot mr-3 text-blue-400"></i>
@@ -1196,28 +1197,34 @@
                     </div>
                 </div>
                 
-                <div>
-                    <h3 class="text-2xl font-bold mb-6">Nos partenaires et Sponsors</h3>
-                    <div class="sponsor-grid">
-                        <a href="#" class="sponsor-logo">
-                            <img src="https://via.placeholder.com/120x60?text=TechCorp" alt="xxxxx" class="w-full h-auto">
-                        </a>
-                        <a href="#" class="sponsor-logo">
-                            <img src="https://via.placeholder.com/120x60?text=Robotix" alt="xxxxxx" class="w-full h-auto">
-                        </a>
-                        <a href="#" class="sponsor-logo">
-                            <img src="https://via.placeholder.com/120x60?text=Nantes+City" alt="xxxx xxxx" class="w-full h-auto">
-                        </a>
-                        <a href="#" class="sponsor-logo">
-                            <img src="https://via.placeholder.com/120x60?text=FutureLab" alt="xxxx" class="w-full h-auto">
-                        </a>
-                        <a href="#" class="sponsor-logo">
-                            <img src="https://via.placeholder.com/120x60?text=EDU+" alt="xxx+" class="w-full h-auto">
-                        </a>
-                        <a href="#" class="sponsor-logo">
-                            <img src="https://via.placeholder.com/120x60?text=CodeMaster" alt="xxxxx" class="w-full h-auto">
-                        </a>
-                    </div>
+    <div>
+    <h3 class="text-2xl font-bold mb-6">Nos partenaires et Sponsors</h3>
+
+    <div class="space-y-8"> 
+        <!-- Sponsor 1 -->
+        <div class="flex items-center space-x-4">
+            <img src="https://via.placeholder.com/100x50?text=TechCorp" alt="NOVALI" class="sponsor-logo w-24 h-auto flex-shrink-0">
+            <div class="flex-grow">
+                <p class="font-semibold">Le groupe NOVALI</p>
+                <p class="text-gray-400 text-sm">Expert en Recrutement et travail temporaire</p>
+            </div>
+        </div>
+
+        <!-- Sponsor 2 -->
+        <div class="flex items-center space-x-4">
+            <img src="https://via.placeholder.com/100x50?text=Nantes+City" alt="Ville de Nantes" class="sponsor-logo w-24 h-auto flex-shrink-0">
+            <div class="flex-grow">
+                <p class="font-semibold">Ville de Nantes</p>
+                <p class="text-gray-400 text-sm">Soutien au projet éducatif par le prêt de la salle.</p>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+
+                
                     <div class="mt-6">
                         <a href="#" class="text-blue-400 hover:text-blue-300 font-medium inline-flex items-center">
                             Devenir sponsor <i class="fas fa-arrow-right ml-2"></i>
